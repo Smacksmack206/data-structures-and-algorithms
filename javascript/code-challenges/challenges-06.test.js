@@ -23,11 +23,9 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  arr.map((element) => {
-    let str = arr.name;
-    return str.split("").reverse().join("");
-  });
+  return arr.map(person => person.name.split('').reverse().join(''));
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
