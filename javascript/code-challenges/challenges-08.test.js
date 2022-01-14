@@ -59,11 +59,7 @@ const sortByChildren = (charArray) => {
   return charArray.sort((a, b) => {
     if (a.children.length > b.children.length) {
     return 1;
-    } else {
-      
     }
-
-  
 }
 
 /* ------------------------------------------------------------------------------------------------
