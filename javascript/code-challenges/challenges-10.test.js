@@ -7,8 +7,8 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 ------------------------------------------------------------------------------------------------ */
 
-function returnTen(str){
- return str.split(' ').splice(str.length + 10);
+function returnTen(str) {
+  return str.split(' ').splice(str.length + 10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,10 +29,10 @@ const findMax = (matrix) => {
   let max = 0;
   matrix.forEach(element => {
     element.forEach(value => {
-      if (value > max){
+      if (value > max) {
         max = value;
       }
-    })
+    });
   });
   return max;
 };
@@ -53,10 +53,10 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   let a = 0;
-   matrix.forEach(value => {
+  matrix.forEach(value => {
 
-  a = a + value;
-  })
+    a = a + parseInt(value);
+  });
   return a;
 };
 
@@ -84,17 +84,17 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-   
-      let totalSum = 0;
-      let cookiesSoldEachHourArray = [];
-      for (let i = 0; i < this.hoursOpen.length - 1; i++) { 
-              let storesperhour = firstPike[i] + seaTac[i] + seattleCenter[i] + capHill[i] + alkiBeach[i];
-      cookiesSoldEachHourArray.push(storesperhour); 
-      totalSum += cookiesSoldEachHourArray[i];              
-      console.log(stores);              
-      return totalSum;
+  const results = [];
+  for (let i = 0; i < stores.lenght; i++) {
+    let totalSum = 0;
+    for (let j = 0; j < stores.lenght; j++) {
+      totalSum += stores[j][i];
     }
+    results.push(totalSum);
 
+    return totalSum;
+
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,8 +108,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
-};
+  let newarr = [];
+  // data.forEach((hours, idx) => {
+  //   newarr.push({sales: `${hours} cookies`, time: hours[idx]});
+  return newarr;
+  }
+
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -133,7 +140,12 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let storepick = [];
+  arr.forEach(items => {
+    storepick.push(items.items[0].quantity);
+  });
+  let finalPickup = storepick.reduce((a, b) => a + b, 0);
+  return finalPickup;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -240,20 +252,20 @@ Run your tests from the console: jest challenge-12.test.js
 
 describe('Testing challenge 1', () => {
   test('it should return the last 10 characters of a string as an array', () => {
-    expect(returnTen('hello world')).toStrictEqual(['e','l','l','o',' ','w','o','r','l','d']);
-    expect(returnTen('world')).toStrictEqual(['w','o','r','l','d']);
+    expect(returnTen('hello world')).toStrictEqual(['e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']);
+    expect(returnTen('world')).toStrictEqual(['w', 'o', 'r', 'l', 'd']);
   });
 });
 
 describe('Testing challenge 2', () => {
   test('It should return the max value', () => {
-    expect(findMax([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(24);
+    expect(findMax([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(24);
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should return the total sum', () => {
-    expect(totalSum([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(81);
+    expect(totalSum([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(81);
     expect(totalSum([])).toStrictEqual(0);
   });
 });
