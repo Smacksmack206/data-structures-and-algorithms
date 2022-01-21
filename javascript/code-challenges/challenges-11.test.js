@@ -19,9 +19,10 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  let objectArr = [];
 
-  return objectArr.push(Object.entries(obj));
+  return Object.keys(obj).map(key => {
+    return (`<li>${key}: ${obj[key]}</li>`);
+  });
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,9 +36,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-
-
-
+  return input.reduce((a, v) => {
+    const rowCount = v.reduce((ia, iv) => {
+      if (iv === target) {
+        return ia + 1;
+      }
+      return ia;
+    }, 0);
+    return a + rowCount;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +75,7 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   if (!input % 5) {
-   
+
   }
 };
 
