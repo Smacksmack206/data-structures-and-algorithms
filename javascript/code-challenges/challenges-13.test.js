@@ -7,8 +7,8 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
-};
+
+;
   
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
