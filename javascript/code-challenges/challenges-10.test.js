@@ -112,7 +112,7 @@ const salesData = (hours, data) => {
   // data.forEach((hours, idx) => {
   //   newarr.push({sales: `${hours} cookies`, time: hours[idx]});
   return newarr;
-  }
+};
 
 
 

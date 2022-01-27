@@ -58,7 +58,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  return input.reduce((a, b) => parseInt(a + b), 0);
+  let sum = 0;
+  input.forEach(arr => {
+    arr.forEach(value => sum += value);
+  });
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,10 +78,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  if (!input % 5) {
-
-  }
+  return input.map(arr => {
+    return arr.filter(value => typeof value === 'number' && value % 5 === 0)
+      .map(num => Math.pow(2, num));
+  });
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -142,8 +149,25 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  let acumulator = [];
+  return data.map(obj => {
+    return obj.filter(char => char.gender === 'female' || char.gender === 'male')
+      .map(remaining => remaining.name + acumulator)
+      .split(' and '); 
+  });
 };
+
+//Think about the specific order you need these to occur
+// map through objects, filter by condition, map though filter and add name properties togehter in a accumulator, then split with spaces and between the
+//Think about the methods you would use
+// map, filter, split
+//map through the data then chain a filter and add conditions
+//Think about what conditions you need, how does those look like,
+//Male or Female not N/a data.map(obj => {
+//   obj.filter(char => char.gender === 'female' || char.gender === 'male')
+// })
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
