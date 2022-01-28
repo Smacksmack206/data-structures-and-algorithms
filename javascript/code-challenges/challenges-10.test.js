@@ -7,8 +7,8 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 ------------------------------------------------------------------------------------------------ */
 
-function returnTen(str) {
-  return str.split(' ').splice(str.length + 10);
+function returnTen(str){
+  return str.split('').slice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,12 +52,12 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  let a = 0;
-  matrix.forEach(value => {
-
-    a = a + parseInt(value);
-  });
-  return a;
+  let sum = 0;
+  let cmatrix = matrix.concat(...matrix);
+  for (let i = 0; i < cmatrix.length; i++) {
+    sum += cmatrix[i];
+  }
+  return sum;
 };
 
 
@@ -84,17 +84,15 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  const results = [];
-  for (let i = 0; i < stores.lenght; i++) {
-    let totalSum = 0;
-    for (let j = 0; j < stores.lenght; j++) {
-      totalSum += stores[j][i];
+  const result = [];
+  for(let i = 0; i < stores[0].length; i++) {
+    let hourlyTotal = 0;
+    for(let j=0; j < stores.length; j++) {
+      hourlyTotal += stores[j][i];
     }
-    results.push(totalSum);
-
-    return totalSum;
-
+    result.push(hourlyTotal);
   }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,10 +106,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  let newarr = [];
-  // data.forEach((hours, idx) => {
-  //   newarr.push({sales: `${hours} cookies`, time: hours[idx]});
-  return newarr;
+  const result = [];
+  data.forEach((currentValue, idx) => {
+    result.push({
+      sales: `${currentValue} cookies`,
+      time: hours[idx]
+    });
+  });
+  return result;
 };
 
 

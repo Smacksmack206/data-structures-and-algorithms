@@ -55,11 +55,16 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-
-  // return charArray.sort(function(a,b){ 
-  //   if (a.children.length > b.children.length) return 1;
-    
-  };
+  return charArray.sort((a, b) => {
+    if (a.children.length > b.children.length) {
+      return 1;
+    } else if (a.children.length < b.children.length) {
+      return -1;
+    } else {
+      return a.house > b.house ? 1:-1;
+    }
+  });
+};
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +92,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  let pattern = /\d[0-9]/g;
+  let pattern = /[0-9]/g;
   return pattern.test(input);
 };
 
