@@ -7,8 +7,17 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
+  let longestIdx = [];
+  arr.reduce(
+    function (a, b) {
+        longestIdx.push(arr.indexOf(a.length > b.length ? a : b));
+        return longestIdx;
+    }
+);
 
-;
+    }
+
+  
   
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -19,7 +28,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  let first = [];
+  for (i = 0; i < arr.length; i++) {
+  first.push(arr.indexOf(0)[i])
+}
+return first;
 };
 
 /* ------------------------------------------------------------------------------------------------
