@@ -68,7 +68,7 @@ const howMuchPencil = (str) => {
     result.push(str.slice(i));
   }
   return result;
-};
+}; 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
