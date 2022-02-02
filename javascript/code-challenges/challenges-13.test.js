@@ -10,15 +10,15 @@ const longestString = (arr) => {
   let longestIdx = [];
   arr.reduce(
     function (a, b) {
-        longestIdx.push(arr.indexOf(a.length > b.length ? a : b));
-        return longestIdx;
+      longestIdx.push(arr.indexOf(a.length > b.length ? a : b));
+      return longestIdx;
     }
-);
+  );
 
-    }
+}
 
-  
-  
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -30,9 +30,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 const firstLetters = (arr) => {
   let first = [];
   for (i = 0; i < arr.length; i++) {
-  first.push(arr.indexOf(0)[i])
-}
-return first;
+    first.push(arr.indexOf(0)[i])
+  }
+  return first;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
- return arr.includes(':)');
+  return arr.includes(':)');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
     const strArray2 = [];
-    const strArray3= ['Ginger']
+    const strArray3 = ['Ginger']
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);

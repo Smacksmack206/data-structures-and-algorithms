@@ -40,7 +40,7 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
- return obj.hasOwnProperty(value);
+  return Object.values(obj).includes(value);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,7 +63,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  let objectData = Object.keys(obj);
+  let newarr = [];
+  objectData.forEach(key => newarr.push(`${key}: ${obj[key]}`));
+
+  return newarr;
 };
 
 
@@ -138,9 +142,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  
-  return arr.hasOwnProperty(Object.values(character));
-
+  let child = 0;
+  arr.forEach(person => {
+    if (person.name === character) {
+      Object.keys(person).forEach((key, idx) => {
+        if (key === 'children') {
+          child = Object.values(person)[idx].length;
+        }
+      });
+    }
+  });
+  return child ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
