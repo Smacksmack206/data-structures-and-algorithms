@@ -28,11 +28,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  let first = [];
-  for (i = 0; i < arr.length; i++) {
-    first.push(arr.indexOf(0)[i])
-  }
-  return first;
+  return arr.map(str => str.substring(0,1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,7 +40,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here... 
+  return arr.filter(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +52,7 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  return arr.map(str => str.substring(1, 4) + str.substring(6, 9) + str.substring(10));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +64,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let string = '';
+  for(let i = 0; i < str.length; i++){
+    if(i % 2 !== 0){
+      string = string + str.substring(i, i+1);
+    }
+  }
+  return string;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,7 +80,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  return arr.includes(':)');
+  
 };
 
 /* ------------------------------------------------------------------------------------------------

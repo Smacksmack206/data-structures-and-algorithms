@@ -44,7 +44,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  const pattern = /^[A-z]+[0-9]+/g;
+  return(string.toString().search(pattern) === 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,8 +91,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  const pattern = /^(\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;``
-  pattern.test(phoneNumber);
+  const pattern = /(\(\d{3}\)|\d{3})+(-| |)\d{3}(-| |)\d{4}$/g;
+  return (phoneNumber.toString().search(pattern) === 0);
+
 };
 
 /* ------------------------------------------------------------------------------------------------

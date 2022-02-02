@@ -53,11 +53,13 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   let sum = 0;
-  let cmatrix = matrix.concat(...matrix);
-  for (let i = 0; i < cmatrix.length; i++) {
-    sum += cmatrix[i];
+  for (let i = 0; i < matrix.length; i++) {
+    let firstArr = matrix[i].reduce(function (pv, cv) {
+      return pv + cv;
+    });
+    sum = sum + firstArr;
   }
-  return sum;
+  return (sum);
 };
 
 
@@ -142,12 +144,15 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  let storepick = [];
-  arr.forEach(items => {
-    storepick.push(items.items[0].quantity);
-  });
-  let finalPickup = storepick.reduce((a, b) => a + b, 0);
-  return finalPickup;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].store === 'Pet store') {
+      for (let j = 0; j < arr[i].items.length; j++) {
+        if (arr[i].items[j].name === 'Treats') {
+          return arr[i].items[j].quantity;
+        }
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------

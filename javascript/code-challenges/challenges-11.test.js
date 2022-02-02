@@ -149,12 +149,18 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  let acumulator = [];
-  return data.map(obj => {
-    return obj.filter(char => char.gender === 'female' || char.gender === 'male')
-      .map(remaining => remaining.name + acumulator)
-      .split(' and '); 
-  });
+  let whatGender = (character) => {
+    if(character.gender === 'male' || character.gender === 'female') {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  let addAnd = (str1, str2) => {
+    return str1 + ' and ' + str2;
+  };
+  let filter = data.filter(whatGender);
+  return filter.map(char => char.name).reduce(addAnd);
 };
 
 //Think about the specific order you need these to occur
@@ -176,7 +182,8 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here... 
+  let shorty = data.reduce((prev, cur) => parseInt(prev.height) < parseInt(cur.height) ? prev : cur);
+  return shorty.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
