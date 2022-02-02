@@ -150,11 +150,7 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   let whatGender = (character) => {
-    if(character.gender === 'male' || character.gender === 'female') {
-      return true;
-    } else {
-      return false;
-    }
+    return (character.gender === 'male' || character.gender === 'female' ? true : false);
   };
   let addAnd = (str1, str2) => {
     return str1 + ' and ' + str2;
@@ -163,15 +159,6 @@ let findMaleAndFemale = (data) => {
   return filter.map(char => char.name).reduce(addAnd);
 };
 
-//Think about the specific order you need these to occur
-// map through objects, filter by condition, map though filter and add name properties togehter in a accumulator, then split with spaces and between the
-//Think about the methods you would use
-// map, filter, split
-//map through the data then chain a filter and add conditions
-//Think about what conditions you need, how does those look like,
-//Male or Female not N/a data.map(obj => {
-//   obj.filter(char => char.gender === 'female' || char.gender === 'male')
-// })
 
 
 
