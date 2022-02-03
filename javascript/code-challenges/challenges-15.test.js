@@ -11,7 +11,9 @@ Write a function named screenForNames that takes in an array of strings and uses
 ------------------------------------------------------------------------------------------------ */
 
 const screenForNames = (arr) => {
-  // Solution code here...
+  let pattern = /^[A-Z][a-z].[A-z][a-z]$/gm;
+  let newarr = arr.match(pattern);
+  return newarr;
 }
 
 /* ------------------------------------------------------------------------------------------------
